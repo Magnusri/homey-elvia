@@ -1,3 +1,3 @@
 # Elvia
 
-Adds support for reading power consumtion on an Elvia power meter
+Homey Pro integration to read power consumtion from an Elvia power meter
