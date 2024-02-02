@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- The '/homey.js' script must be included in your settings view to work -->
+    <script
+      type="text/javascript"
+      src="/homey.js"
+      data-origin="settings"
+    ></script>
+  </head>
+  <body>
+    <header class="homey-header">
+      <h1 class="homey-title" data-i18n="settings.title">
+        <!-- This will be filled with the translated string with key 'settings.title'. -->
+      </h1>
+      <p class="homey-subtitle" data-i18n="settings.subtitle">
+        <!-- This field will also be translated -->
+      </p>
+    </header>
+
+    <fieldset class="homey-form-fieldset">
+      <legend class="homey-form-legend">Credentials</legend>
+
+      <div class="homey-form-group">
+        <label class="homey-form-label" for="token">Elvia Token</label>
+        <input class="homey-form-input" id="token" type="text" value="" />
+      </div>
+    </fieldset>
+
+    <button id="save" class="homey-button-primary-full">Save</button>
+
+    <script type="text/javascript">
+      // a method named 'onHomeyReady' must be present in your code
+      function onHomeyReady(Homey) {
+        // Tell Homey we're ready to be displayed
+        Homey.ready();
+
+        var tokenElement = document.getElementById("token");
+        var saveElement = document.getElementById("save");
+
+        Homey.get("token", function (err, token) {
+          if (err) return handleError(err);
+          tokenElement.value = token;
+        });
+
+        saveElement.addEventListener("click", function (e) {
+          saveElement.textContent = "Saving...";
+          Homey.set("token", tokenElement.value, handleError);
+          saveElement.textContent = "Saved!";
+        });
+      }
+
+      function handleError(err) {
+        if (err) return Homey.alert(err);
+      }
+    </script>
+  </body>
+</html>

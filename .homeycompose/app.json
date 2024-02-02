@@ -1,0 +1,28 @@
+{
+  "id": "org.ingwer.elvia",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Elvia"
+  },
+  "description": {
+    "en": "Adds support for reading power consumtion on an Elvia power meter"
+  },
+  "category": [
+    "energy"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/elvia.png",
+    "large": "/assets/images/elvia.png",
+    "xlarge": "/assets/images/elvia.png"
+  },
+  "author": {
+    "name": "Magnus Ingwersen",
+    "email": "magnus_rydjord@hotmail.com"
+  }
+}
